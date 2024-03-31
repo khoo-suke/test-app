@@ -1,0 +1,13 @@
+.header {
+  background-color: #363636;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 2rem;
+}
+
+.header a {
+  color: #fff;
+  text-decoration: none;
+}
