@@ -1,13 +1,14 @@
 import React from "react";
 import './ListPost.css';
+import { posts } from "./data/posts";
 import ListCategory from './ListCategory';
 
-export default function ListPost({ src }) {
+export default function ListPost() {
 
   return (
-    src.map(elem => (
+    posts.map(elem => (
       <>
-        <div className="home_container">
+        <div className="home_container" key={elem.id}>
           <ul>
             <li>
               <a href="index.js">
@@ -17,8 +18,9 @@ export default function ListPost({ src }) {
                       {elem.createdAt.substring(0, 10).replace(/-/g, '/')}
                     </div>
                     <div className="home_categories">
-                      {elem.categories[0] ? <ListCategory category={elem.categories[0]} /> : null}
-                      {elem.categories[1] ? <ListCategory category={elem.categories[1]} /> : null}
+                      {elem.categories.map(category => (
+                        <ListCategory key={category} category={category}/>
+                      ))}
                     </div>
                   </div>
                   <h2>{elem.title}</h2>
