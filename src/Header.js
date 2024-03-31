@@ -5,7 +5,7 @@ export default function Header() {
     <>
       <header className="header">
         <a href="/">Blog</a>
-        <a href="/">お問い合わせ</a>
+        <a href="/contact">お問い合わせ</a>
     </header>
     </>
   )

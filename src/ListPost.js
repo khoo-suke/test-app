@@ -11,7 +11,7 @@ export default function ListPost() {
         <div className="home_container" key={elem.id}>
           <ul>
             <li>
-              <a href="index.js">
+              <a href={`post/${elem.id}`}>
                 <div className="home_inner">
                   <div className="home_info">
                     <div className="home_date">
