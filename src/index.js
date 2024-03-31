@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { posts } from './data/posts';
 import ListPost from './ListPost';
+import Header from './Header';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,10 @@ root.render(
 );
 
 root.render(
-  <ListPost src={posts} />
+  <>
+    <Header/>
+    <ListPost src={posts} />
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function

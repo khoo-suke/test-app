@@ -3,7 +3,6 @@ import './ListPost.css';
 import ListCategory from './ListCategory';
 
 export default function ListPost({ src }) {
-  // const dateOnly = posts.filter(post => post.createdAt );
 
   return (
     src.map(elem => (
@@ -15,7 +14,7 @@ export default function ListPost({ src }) {
                 <div className="home_inner">
                   <div className="home_info">
                     <div className="home_date">
-                      {elem.createdAt}
+                      {elem.createdAt.substring(0, 10).replace(/-/g, '/')}
                     </div>
                     <div className="home_categories">
                       {elem.categories[0] ? <ListCategory category={elem.categories[0]} /> : null}
@@ -23,7 +22,7 @@ export default function ListPost({ src }) {
                     </div>
                   </div>
                   <h2>{elem.title}</h2>
-                  <p>{elem.content}</p>
+                  <div dangerouslySetInnerHTML={{ __html: `${elem.content.substring(0, 60)}${elem.content.length > 60 ? '…' : ''}` }} />
                 </div>
               </a>
             </li>
