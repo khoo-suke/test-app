@@ -1,7 +1,6 @@
 import React from "react";
 import './Contact.css';
 import { useForm } from "react-hook-form"
-
 export default function Contact() {
   const defaultValues = {
     name: '',
@@ -10,17 +9,17 @@ export default function Contact() {
   }
 
   const { register, handleSubmit, reset, formState: { isSubmitting, errors } } = useForm({ defaultValues });
-
   const handleClear = () => {
     reset();
   };
 
   const onsubmit = async data => {
-    if (validateData(data)) {
+    if (data) {
       try {
         const response = await sendDataToAPI(data);
         console.log(response);
         handleClear();
+        alert("送信しました");
       } catch (error) {
         console.error(error);
       }
@@ -28,14 +27,8 @@ export default function Contact() {
       console.error("エラー");
     }
   };
-
-  function validateData(data) {
-    return true;
-  }
-
-  async function sendDataToAPI(data) {
+  const sendDataToAPI = async data => {
     try {
-      alert("送信しました");
       const response = await fetch('https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/contacts', {
         method: 'POST',
         headers: {
@@ -48,7 +41,6 @@ export default function Contact() {
       throw new Error(error.message);
     }
   }
-
   return (
     <div className="container">
       <h2 className="mb-60">お問い合わせフォーム</h2>
